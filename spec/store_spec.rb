@@ -23,4 +23,9 @@ describe(Store) do
     expect(store.save()).to(eq(false))
   end
 
+  it("saves the stores title with a capital letter using titlecase") do
+    store = Store.new({:title => "shoe outlet"})
+    store.save
+    expect(store.titlecase_title()).to(eq("Shoe Outlet"))
+  end
 end
