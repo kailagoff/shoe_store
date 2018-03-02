@@ -6,29 +6,36 @@
 
 ## Description
 
-_This app helps a user add and view shoes to a list.
+_This app allows a user to add shoe stores to a database. The user is then able to add brands to those shoe stores. Once the stores and brands are created, the user can edit the names as well as delete them entirely._
 
 ### Specifications
-    1. Will add new projects to a list
-      * _Example input - "Add: Plant trees"_
-      * _Example output - "Projects: Plant trees"_
+    1. Will add new shoe store and brand to a database
+      * _Example input - "Add Store: Adidas Outlet"_
+      * _Example input - "Add Brand: Adidas Shelltoe"_
+      * _Example output - "Stores: Adidas Outlet"_
+      * _Example output - "Brands: Adidas Shelltoe"_
 
-    2. Will allow user to view projects
-      * _Example input - "View: Projects"_
-      * _Example output - "Projects : Plant trees"_
+    2. Will allow user to view stores and brands
+      * _Example input - "View Store: Nike Outlet"_
+      * _Example input - "View Brand: Air Force One"_
+      * _Example output - "View Store: Nike Outlet"_
+      * _Example output - "View Brand: Air Force One"_
 
-    3. Will all user to update projects
-      * _Example input - "Update: Plant trees to Clean highway"_
-      * _Example output - "Projects: Clean highway"_
+    3. Will all user to update stores and brands
+      * _Example input - "Update Store: Footlocker"_
+      * _Example input - "Update Brand: Jordans"_
+      * _Example output - "Update Stores: Footlocker"_
+      * _Example output - "Update Brands: Jordans"_
 
-    4. Will all user to delete projects
-      * _Example input - "Delete: Plant trees "_
-      * _Example output - "Projects: " " "_
+    4. Will all user to delete stores and brands
+      * _Example input - "Delete Store: Running Store"_
+      * _Example input - "Delete Brand: Asics"_
+      * _Example output - "Deleted Stores: Footlocker"_
+      * _Example output - "Deleted Brands: Jordans"_
 
-    5. Will all user to add volunteer to projects
-      * _Example input - "Add: Adam "_
-      * _Example output - "Projects: Clean Highway Volunteer: Adam"_
-
+    5. Will all user to add brands to stores
+      * _Example input - "Add Brand to store: New Balance"_
+      * _Example output - "Store: Footlocker Brand: New Balance"_
 
 #### User stories
 
@@ -47,29 +54,33 @@ _This app helps a user add and view shoes to a list.
 
 ## Install the DATABASE instructions
 
-* _Enter into the terminal:_ ``` $postgres```
+* _Do you have postgres and/or psql installed? [Download Here](https://www.postgresql.org/download/)_
 
-* _In the following line enter:_ ```$psql```
+* _Clone down from Github_
 
-* _Next enter:_ ```$CREATE DATABASE volunteer_tracker;``` _to create the database_
+* _In terminal, navigate into main project directory folder shoe_store_
 
-* _To connect enter:_ ```$c\ volunteer_tracker```
+* _Enter:_ ``` $ bundle install ``` _into your terminal_
 
-* _To create the necessary tables enter the following commands:_ ```CREATE TABLE projects (id serial PRIMARY KEY, title varchar);``` _followed by_ ```CREATE TABLE volunteers (id serial PRIMARY KEY, name varchar, projects_id int);```
+* _Enter:_ ``` $ rake db:migrate ``` _into your terminal_
+
+* _Enter:_ ```$ruby app.rb``` _into your terminal_
+
+* _In web browser of choice enter:_ ```http://localhost:4567/```
+
 
 ## Setup/Installation Requirements
 
-  * _Enter in the terminal:_ ``` $ruby app.rb```
+* _Enter:_ ```$ruby app.rb``` _into your terminal_
 
-  * _Using a web browser, type in the url_ ``` localhost:4567 ```
+* _In web browser of choice enter:_ ```http://localhost:4567/```
 
-  * _You can also open the app with this link:_ ```(heroku link)```
 
 ## Known Bugs
 
   * _No known bugs at this time._
 
-## Support and contact details
+## 📧 Support and contact details
 
   _To suggest changes, submit a pull request in the GitHub repository._
 
@@ -79,7 +90,7 @@ _This app helps a user add and view shoes to a list.
   * Sinatra
   * Postgres
   * pSQL
-  * Heroku
+  * ActiveRecord
 
 ### License
 
