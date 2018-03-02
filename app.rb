@@ -86,24 +86,18 @@ post('/brands') do
   erb(:brands)
 end
 
-
 get('/brands/:id') do
   @brand = Brand.find(params.fetch("id").to_i())
-  @brands = Brand.all()
-  erb(:brand)
-end
-
-get('/brands/:id/edit') do
-  @brand = Brand.find(params.fetch("id").to_i())
-  @brands = Brand.all()
+  @store = Store.all()
   erb(:brand_edit)
 end
 
 patch("/brands/:id") do
   name = params.fetch("name")
   @brand = Brand.find(params.fetch("id").to_i())
-  @brands = @brands.update({:name => name})
-  erb(:index)
+  @brand.update({:name => name})
+  @brands = Brand.all()
+  erb(:brands)
 end
 
 delete("/brands/:id") do
