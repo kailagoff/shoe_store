@@ -18,4 +18,9 @@ describe(Store) do
     expect(store2.save()).to(eq(false))
   end
 
+  it("ensures the length of title is at most 100 characters") do
+    store = Store.new({:title => "a".*(101)})
+    expect(store.save()).to(eq(false))
+  end
+
 end

@@ -18,7 +18,7 @@ describe(Brand) do
     expect(brand2.save()).to(eq(false))
   end
 
-  it("ensures the length of title is at most 100 characters") do
+  it("ensures the length of name is at most 100 characters") do
     brand = Brand.new({:name => "a".*(101)})
     expect(brand.save()).to(eq(false))
   end
