@@ -46,3 +46,14 @@ describe 'the brand creation path', {:type => :feature} do
     expect(page).to have_content()
   end
 end
+
+describe 'the brand creation path', {:type => :feature} do
+  it 'takes the user to a form where they can create a brand' do
+    visit '/'
+    click_link('Add a New Shoe Brand')
+    fill_in('Brand Name', :with => 'adidas')
+    fill_in('Price', :with => '50')
+    click_button('Add Brand')
+    expect(page).to have_content('Home Stores Brands Welcome to the Brands page Adidas $50.00 Return to Home Page')
+  end
+end
