@@ -38,3 +38,11 @@ describe 'the store creation path', {:type => :feature} do
     expect(page).to have_content('Home Stores Brands Keep Track of Your Stores and Brands Add a New Show Store Location Add a New Shoe Brand')
   end
 end
+
+describe 'the brand creation path', {:type => :feature} do
+  it 'the user starts on the home page' do
+    visit '/'
+    click_link('Add a New Shoe Brand')
+    expect(page).to have_content()
+  end
+end
