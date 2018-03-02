@@ -2,6 +2,8 @@ require("bundler/setup")
 Bundler.require(:default)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
+#Stores
+
 get ("/") do
   @brands = Brand.all()
   @stores = Store.all()
@@ -49,4 +51,49 @@ delete("/stores/:id") do
   @store.delete()
   @stores = Store.all()
   erb(:stores)
+end
+
+#brands
+
+get('/brand_form') do
+  erb(:brand_form)
+end
+
+post('/brands') do
+  name = params.fetch('name')
+  price = params.fetch('price').to_i
+  brand = Brand.create({:name => name, :price => price})
+  @brands = Brand.all()
+  erb(:brands)
+end
+
+get('/brands') do
+  @brands = Brand.all()
+  erb(:brands)
+end
+
+get('/brands/:id') do
+  @brand = Brand.find(params.fetch("id").to_i())
+  @brands = Brand.all()
+  erb(:brand)
+end
+
+get('/brands/:id/edit') do
+  @brand = Brand.find(params.fetch("id").to_i())
+  @brands = Brand.all()
+  erb(:brand_edit)
+end
+
+patch("/brands/:id") do
+  name = params.fetch("name")
+  @brand = Brand.find(params.fetch("id").to_i())
+  @brands = @brands.update({:name => name})
+  erb(:index)
+end
+
+delete("/brands/:id") do
+  @brand = Brand.find(params.fetch("id").to_i())
+  @brand.delete()
+  @brands = Brand.all()
+  erb(:brands)
 end

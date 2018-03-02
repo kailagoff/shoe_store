@@ -1,0 +1,14 @@
+<h1>Welcome to the Brands page</h1>
+
+<% if @brands.any?() %>
+  <ul>
+    <% @brands.each do |brand| %>
+    <li><a href="/brands/<%= brand.id() %>"><%= brand.name() %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no brands yet!</p>
+<% end %>
+
+
+<p><a href="/">Return to Home Page</a></p>
