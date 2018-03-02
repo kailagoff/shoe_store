@@ -13,9 +13,14 @@ describe(Brand) do
   end
 
   it ("will validate the uniqueness of a name") do
-  brand = Brand.new({name: "Eve"})
-  brand.save
-  brand2 = Brand.new({name: "Eve"})
-  expect(brand2.save()).to(eq(false))
-end
+    brand = Brand.new({name: "Eve"})
+    brand.save
+    brand2 = Brand.new({name: "Eve"})
+    expect(brand2.save()).to(eq(false))
+  end
+
+  it("ensures the length of title is at most 100 characters") do
+    brand = Brand.new({:name => "a".*(101)})
+    expect(brand.save()).to(eq(false))
+    end
 end
