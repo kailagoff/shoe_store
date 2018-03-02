@@ -1,19 +1,32 @@
-<h2>Welcome to the Brands Page</h2>
-<h1><%= @brand.name() %></h1>
+<h4>Current brands in this store:</h4>
 
-
-<% if @brands.any?() %>
-  <p>Click on a Brand to see information about it:</p>
-
+<% if @store.brands.any? %>
   <ul>
-    <% @brands.each do |brand| %>
-    <li><a href="/brands/<%= brand.id() %>"><%= brand.name() %></a></li>
+    <% @store.brands.each do |brands| %>
+      <li><%= brands.name %></li>
     <% end %>
   </ul>
 <% else %>
-  <p>There are no brands added yet!</p>
+  <p>There are no brands yet!</p>
 <% end %>
 
+<p><a href="/stores/<%= @store.id() %>/edit">Edit Recipe</a></p>
+
+<h4>Add new ingredients to this recipe:</h4>
+
+<form action="/stores/<%= @store.id() %>/brands" method="post">
+  <div class="form-group">
+    <select name="brand_id">
+      <% @available_brands.each do |brand| %>
+        <option value="<%= brand.id %>"><%= brand.name %></option>
+      <% end %>
+    </select>
+  </div>
+  <button type="submit" class="button btn-info">Add brand to store!</button>
+</form>
+
 <a href="/brands/<%= @brand.id() %>/edit"> Edit Brand name</a>
+
+<h4><a href="/stores/<%= @store.id() %>">Back to my store!</a></h4>
 
 <p><a href="/">Return to Home Page</a></p>

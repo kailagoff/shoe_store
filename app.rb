@@ -5,8 +5,6 @@ Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 #Stores
 
 get ("/") do
-  @brands = Brand.all()
-  @stores = Store.all()
   erb(:index)
 end
 
@@ -29,6 +27,7 @@ end
 
 get('/stores/:id') do
   @store = Store.find(params.fetch("id").to_i())
+  @available_brands = Brand.all() - @store.brands
   @stores = Store.all()
   erb(:store)
 end
@@ -59,6 +58,26 @@ get('/brand_form') do
   erb(:brand_form)
 end
 
+get('/brands') do
+  @brands = Brand.all()
+  erb(:brands)
+end
+
+get('/stores/:id/brands') do
+  @brand = Brand.find(params.fetch("id").to_i())
+  @available_brands = Brand.all() - @store.brands
+  @brands = Brand.all()
+  erb(:brand)
+end
+
+post('/recipes/:id/brands') do
+  @store = Store.find(params.fetch("id").to_i())
+  found_brand = Brand.find(params.fetch("brand_id").to_i)
+  @store.brands.push(found_brand)
+  @available_brands = Brand.all() - @store.brands
+  erb(:brand)
+end #add brand button
+
 post('/brands') do
   name = params.fetch('name')
   price = params.fetch('price').to_i
@@ -67,10 +86,6 @@ post('/brands') do
   erb(:brands)
 end
 
-get('/brands') do
-  @brands = Brand.all()
-  erb(:brands)
-end
 
 get('/brands/:id') do
   @brand = Brand.find(params.fetch("id").to_i())
