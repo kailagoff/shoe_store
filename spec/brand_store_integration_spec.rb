@@ -54,7 +54,7 @@ describe 'the brand creation path', {:type => :feature} do
     fill_in('Brand Name', :with => 'adidas')
     fill_in('Price', :with => '50')
     click_button('Add Brand')
-    expect(page).to have_content('Home Stores Brands Welcome to the Brands page Adidas $50.00 Return to Home Page')
+    expect(page).to have_content('Adidas $50.00')
   end
 end
 
@@ -65,10 +65,10 @@ describe 'the brand update path', {:type => :feature} do
     fill_in('Brand Name', :with => 'adidas')
     fill_in('Price', :with => '50')
     click_button('Add Brand')
-    expect(page).to have_content('Home Stores Brands Welcome to the Brands page Adidas $50.00 Return to Home Page')
+    expect(page).to have_content('Adidas $50.00')
     click_link('Adidas $50.00')
     fill_in('Edit your brand:', :with => 'Nike')
     click_button('Update')
-    expect(page).to have_content('Home Stores Brands Welcome to the Brands page Nike $50.00 Return to Home Page')
+    expect(page).to have_content('Nike $50.00')
   end
 end
