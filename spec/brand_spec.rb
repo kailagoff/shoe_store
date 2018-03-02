@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe(Brand) do
+  # it { should have_and_belong_to_many(:stores) } #not working, not sure why
+
   it("will validate the presence of a name") do
     brand = Brand.new({:name => ""})
     expect(brand.save()).to(eq(false))
@@ -23,9 +25,9 @@ describe(Brand) do
     expect(brand.save()).to(eq(false))
   end
 
-  it("saves the brand name with a capital letter using titlecase") do
-    brand = Brand.new({:name => "adidas"})
+  it("saves the brand name as all uppercase using upcase") do
+    brand = Brand.new({:name => "Adidas classics"})
     brand.save
-    expect(brand.titlecase_title()).to(eq("Adidas"))
+    expect(brand.upcase_name()).to(eq("ADIDAS CLASSICS"))
   end
 end
