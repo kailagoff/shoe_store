@@ -64,13 +64,13 @@ get('/brands') do
 end
 
 get('/stores/:id/brands') do
-  @brand = Brand.find(params.fetch("id").to_i())
+  @store = Store.find(params.fetch("id").to_i())
   @available_brands = Brand.all() - @store.brands
   @brands = Brand.all()
   erb(:brand)
 end
 
-post('/recipes/:id/brands') do
+post('/stores/:id/brands') do
   @store = Store.find(params.fetch("id").to_i())
   found_brand = Brand.find(params.fetch("brand_id").to_i)
   @store.brands.push(found_brand)
