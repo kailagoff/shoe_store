@@ -22,5 +22,11 @@ describe(Brand) do
   it("ensures the length of title is at most 100 characters") do
     brand = Brand.new({:name => "a".*(101)})
     expect(brand.save()).to(eq(false))
-    end
+  end
+
+  it("saves the brand name with a capital letter using titlecase") do
+    brand = Brand.new({:name => "adidas"})
+    brand.save
+    expect(brand.titlecase_title()).to(eq("Adidas"))
+  end
 end
