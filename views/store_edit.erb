@@ -2,19 +2,17 @@
 
 <form action="/stores/<%= @store.id() %>" method="post">
   <input name="_method" type="hidden" value="patch">
-
+  <br>
   <label for="title">Edit your store:</label>
   <input id="title" name="title" type="text">
-
+  <br>
   <button type="submit">Update</button>
 </form>
-
-
+<br>
 <form action="/stores/<%= @store.id()%>" method="post">
   <input name="_method" type="hidden" value="delete">
 
   <button type="submit" class="btn btn-danger">Delete Store</button>
 </form>
-
-
+<br>
 <p><a href="/">Return to Home Page</a></p>
