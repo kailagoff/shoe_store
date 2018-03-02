@@ -6,4 +6,9 @@ describe(Brand) do
     brand = Brand.new({:name => ""})
     expect(brand.save()).to(eq(false))
   end
+
+  it("validates presence of price") do
+    brand = Brand.new({:price => nil})
+    expect(brand.save()).to(eq(false))
+  end
 end
