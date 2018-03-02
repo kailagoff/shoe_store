@@ -1,9 +1,8 @@
-<h2>Welcome to the Stores Page</h2>
-<h1> Store: <%= @store.title() %></h1>
-
+<h2>Store Locations</h2>
+<br>
 
 <% if @stores.any?() %>
-  <p>Click on a Store to see information about it and add brands to it:</p>
+  <p>Click on any of the stores below to add brands to them:</p>
 
   <ul>
     <% @stores.each do |store| %>
@@ -14,8 +13,9 @@
   <p>There are no stores added yet!</p>
 <% end %>
 
+<h3> </h3>
 
-  <h4>Current brands in this store:</h4>
+  <h4>Current brands in <strong><%= @store.title() %><strong>:</h4>
 
   <% if @store.brands.any? %>
     <ul>
@@ -24,11 +24,11 @@
       <% end %>
     </ul>
   <% else %>
-    <p><em>There are no brands yet!</em></p>
+    <p><em>No brands in this store yet</em></p>
   <% end %>
 
-<a href="/stores/<%= @store.id() %>/edit"> Edit Store name</a>
+<p><a href="/stores/<%= @store.id() %>/edit"> Edit Store name</a><p>
 
- <button type="button" class="btn btn-outline-info"><a href="/stores/<%= @store.id() %>/brands">Add shoe brands to this store</a></button>
+ <button type="button" class="btn"><a href="/stores/<%= @store.id() %>/brands">Add shoe brands to this store</a></button>
 
 <p><a href="/">Return to Home Page</a></p>

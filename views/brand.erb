@@ -7,13 +7,11 @@
     <% end %>
   </ul>
 <% else %>
-  <p>There are no brands yet!</p>
+  <p>No brands yet!</p>
 <% end %>
-
-<p><a href="/stores/<%= @store.id() %>/edit">Edit store</a></p>
+<br>
 
 <h4>Add new brands to this store:</h4>
-
 <form action="/stores/<%= @store.id() %>/brands" method="post">
   <div class="form-group">
     <select name="brand_id">
@@ -22,10 +20,10 @@
       <% end %>
     </select>
   </div>
-  <button type="submit" class="button btn-info">Add brand to store!</button>
+  <button type="submit" class="button">Add brand to store</button>
 </form>
-
-
-<h4><a href="/stores/<%= @store.id() %>">Back to my store!</a></h4>
+<br>
+<br>
+<h5><a href="/stores/<%= @store.id() %>">Back to my store!</a></h5>
 
 <p><a href="/">Return to Home Page</a></p>
