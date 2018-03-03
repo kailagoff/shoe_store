@@ -67,10 +67,6 @@ _This app allows a user to add shoe stores to a database. The user is then able 
 
 * _Enter:_ ``` $ rake db:migrate ``` _into your terminal_
 
-* _Enter:_ ```$ruby app.rb``` _into your terminal_
-
-* _In web browser of choice enter:_ ```http://localhost:4567/```
-
 
 ## Setup/Installation Requirements
 
