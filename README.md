@@ -8,6 +8,9 @@
 
 _This app allows a user to add shoe stores to a database. The user is then able to add brands to those shoe stores. Once the stores and brands are created, the user can edit the names as well as delete them entirely._
 
+<kbd><img src="public/img/screenshot.png" alt=""></kbd>
+
+
 ### Specifications
     1. Will add new shoe store and brand to a database
       * _Example input - "Add Store: Adidas Outlet"_
