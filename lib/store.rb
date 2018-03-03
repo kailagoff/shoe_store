@@ -4,7 +4,6 @@ class Store < ActiveRecord::Base
   before_save(:titlecase_title)
 
 # private #specs not working when methods are private
-
   def titlecase_title
     self.title=(title().titlecase())
   end
