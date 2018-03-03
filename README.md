@@ -44,7 +44,7 @@ _This app allows a user to add shoe stores to a database. The user is then able 
 
   1. As a user, I want to be able to add, update, delete and list shoe stores.
   2. As a user, I want to be able to add and list new shoe brands. Shoe brands should include price.
-  3. As a user, I want to be able to add shoe brands in the application (don't worry about updating, listing or destroying shoe brands).
+  3. As a user, I want to be able to add shoe brands in the application.
   4. As a user, I want to be able to add existing shoe brands to a store to show where they are sold.
   5. As a user, I want to be able to associate the same brand of shoes with multiple stores.
   6. As a user, I want to be able to see all of the brands a store sells on the individual store page.
