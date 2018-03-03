@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe(Store) do
-  # it { should have_and_belong_to_many(:brands) } #unsure why it fails
+  it { should have_and_belong_to_many(:brands) }
 
   it("will not save if the field is left blank") do
     store = Store.new({:title => ""})

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe(Brand) do
-  # it { should have_and_belong_to_many(:stores) } #not working, dont know why
+  it { should have_and_belong_to_many(:stores) }
 
   it("will validate the presence of a name") do
     brand = Brand.new({:name => ""})
