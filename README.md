@@ -2,7 +2,7 @@
 
 #### _By Kaila Goff_
 
-#### _An application for a fictious shoe store. 3-2-18_
+#### _An application for a fictious shoe store. Epicodus Code Review. 3-2-18_
 
 ## Description
 
